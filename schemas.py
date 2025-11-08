@@ -38,6 +38,19 @@ class Product(BaseModel):
     category: str = Field(..., description="Product category")
     in_stock: bool = Field(True, description="Whether product is in stock")
 
+# Movie schema for the Netflix-style app
+class Movie(BaseModel):
+    """
+    Movies collection schema
+    Collection name: "movie"
+    """
+    title: str = Field(..., description="Movie title")
+    image: str = Field(..., description="Poster or backdrop image URL")
+    category: str = Field(..., description="Row/category this movie belongs to")
+    description: Optional[str] = Field(None, description="Short description")
+    year: Optional[int] = Field(None, ge=1888, le=2100, description="Release year")
+    rating: Optional[float] = Field(None, ge=0, le=10, description="Average rating 0-10")
+
 # Add your own schemas here:
 # --------------------------------------------------
 
